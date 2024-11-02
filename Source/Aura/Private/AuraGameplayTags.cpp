@@ -5,9 +5,9 @@
 
 #include "GameplayTagsManager.h"
 
-//FAuraGameplayTags FAuraGameplayTags::GameplayTags;
+FAuraGameplayTags FAuraGameplayTags::GameplayTags;
 
 void FAuraGameplayTags::InitializeNativeGameplayTags()
 {
-	UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.Secondary.Armor"), FString("Reduces damage take, improvers Block Chance"));
+	GameplayTags.Attributes_Secondary_Armor = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.Secondary.Armor"), FString("Reduces damage take, improvers Block Chance"));
 }
