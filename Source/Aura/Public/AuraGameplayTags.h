@@ -57,6 +57,8 @@ public:
  FGameplayTag Montage_Attack_RightHand;
  FGameplayTag Montage_Attack_LeftHand;
 
+ //FGameplayTag GameplayCue_MeleeImpact;
+
  TMap<FGameplayTag, FGameplayTag> DamageTypesToResistance;
 
  FGameplayTag Effects_HitReact;

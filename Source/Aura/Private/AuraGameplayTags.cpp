@@ -2,8 +2,14 @@
 
 
 #include "AuraGameplayTags.h"
-
 #include "GameplayTagsManager.h"
+#include "NativeGameplayTags.h"
+
+namespace UE::GameplayTags
+{
+	//UE_DECLARE_GAMEPLAY_TAG_EXTERN(GameplayCue_MeleeImpact);
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(GameplayCue_MeleeImpact, "GameplayCue.MeleeImpact", "GameplayCue MeleeImpact Tag");
+}
 
 FAuraGameplayTags FAuraGameplayTags::GameplayTags;
 
@@ -220,4 +226,13 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 		FName("Montage.Attack.RightHand"),
 		FString("Right Hand")
 		);
+
+	/*
+	 * Gameplay Cue
+	 */
+
+	/* GameplayTags.GameplayCue_MeleeImpact = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("GameplayCue.MeleeImpact"),
+		FString("")
+		); */
 }
