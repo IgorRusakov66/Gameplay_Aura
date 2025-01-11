@@ -58,7 +58,7 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 		
 		AuraASC->EffectAssetTags.AddLambda([this](const FGameplayTagContainer& AssetTags)
         {
-        	for (const FGameplayTag Tag : AssetTags)
+        	for (const FGameplayTag& Tag : AssetTags)
         	{
         		FGameplayTag MessageTag = FGameplayTag::RequestGameplayTag(FName("Message"));
         		if (Tag.MatchesTag(MessageTag))
@@ -74,7 +74,7 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 void UOverlayWidgetController::OnInitializeStartupAbilities(UAuraAbilitySystemComponent* AuraAbilitySystemComponent)
 {
 	//TODO Get information about all given abilities, look up their Ability Info, and broadcast it to widget.
-	if (AuraAbilitySystemComponent->bStartupAbilitiesGiven) return;
+	if (!AuraAbilitySystemComponent->bStartupAbilitiesGiven) return;
 
 	FForEachAbility BroadcastDelegate;
 	BroadcastDelegate.BindLambda([this, AuraAbilitySystemComponent](const FGameplayAbilitySpec AbilitySpec)
