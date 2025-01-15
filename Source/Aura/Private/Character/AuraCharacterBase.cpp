@@ -129,6 +129,11 @@ void AAuraCharacterBase::IncrementMinionCount_Implementation(const int32 Amount)
 	MinionsCount += Amount;
 }
 
+ECharacterClass AAuraCharacterBase::GetCharacterClass_Implementation()
+{
+	return CharacterClass;
+}
+
 void AAuraCharacterBase::InitAbilityActorInfo()
 {
 }
