@@ -35,7 +35,8 @@ void UAuraWidgetController::BroadcastAbilityInfo()
 		Info.StatusTag = AuraAbilitySystemComponent->GetStatusFromSpec(AbilitySpec);
 		AbilityInfoDelegate.Broadcast(Info);
 	});
-	AuraAbilitySystemComponent->ForEachAbility(BroadcastDelegate);
+	GetAuraASC()->ForEachAbility(BroadcastDelegate);
+	//AuraAbilitySystemComponent->ForEachAbility(BroadcastDelegate);
 }
 
 AAuraPlayerController* UAuraWidgetController::GetAuraPC()
