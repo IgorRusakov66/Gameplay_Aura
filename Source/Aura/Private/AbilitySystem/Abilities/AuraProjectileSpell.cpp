@@ -1,11 +1,10 @@
-// Coppyright Igor Rusakov
+// Copyright Igor Rusakov
 
 
 #include "AbilitySystem/Abilities/AuraProjectileSpell.h"
 
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
-#include "AuraGameplayTags.h"
 #include "Actor/AuraProjectile.h"
 #include "Interaction/CombatInterface.h"
 
@@ -28,11 +27,8 @@ void UAuraProjectileSpell::SpawnProjectile(const FVector& ProjectileTargetLocati
 		SocketTag);
 	FRotator Rotation = (ProjectileTargetLocation - SocketLocation).Rotation();
 	
-	if (bOverridePitch)
-	{
-		Rotation.Pitch = PitchOverride;
-	}
-	
+	if (bOverridePitch) Rotation.Pitch = PitchOverride;
+		
 	FTransform SpawnTransform;
 	SpawnTransform.SetLocation(SocketLocation);
 	SpawnTransform.SetRotation(Rotation.Quaternion());

@@ -1,4 +1,4 @@
-// Coppyright Igor Rusakov
+// Copyright Igor Rusakov
 
 
 #include "AbilitySystem/Abilities/AuraSummonAbility.h"
