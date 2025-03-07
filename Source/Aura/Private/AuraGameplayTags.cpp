@@ -8,7 +8,7 @@
 namespace UE::GameplayTags
 {
 	//UE_DECLARE_GAMEPLAY_TAG_EXTERN(GameplayCue_MeleeImpact);
-	UE_DEFINE_GAMEPLAY_TAG_COMMENT(GameplayCue_MeleeImpact, "GameplayCue.MeleeImpact", "GameplayCue MeleeImpact Tag");
+	//UE_DEFINE_GAMEPLAY_TAG_COMMENT(GameplayCue_MeleeImpact, "GameplayCue.MeleeImpact", "GameplayCue MeleeImpact Tag");
 }
 
 FAuraGameplayTags FAuraGameplayTags::GameplayTags;
@@ -397,4 +397,28 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 		FString("Montage Attack 4")
 		);
 	
+	/*
+	 * Player Tags
+	 */
+
+	GameplayTags.Player_Block_CursorTrace = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Player.Block.CursorTrace"),
+		FString("Block tracing under the cursor")
+		);
+
+	GameplayTags.Player_Block_InputHeld = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Player.Block.InputHeld"),
+		FString("Block Input Held callback for input")
+		);
+
+	GameplayTags.Player_Block_InputPressed = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Player.Block.InputPressed"),
+		FString("Block Input Pressed callback for input")
+		);
+
+	GameplayTags.Player_Block_InputReleased = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Player.Block.InputReleased"),
+		FString("Block Input Released callback for input")
+		);
+
 }
