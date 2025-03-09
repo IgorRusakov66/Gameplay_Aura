@@ -46,6 +46,11 @@ void AAuraCharacterBase::Die(const FVector& DeathImpulse)
 	MulticastHandleDeath(DeathImpulse);
 }
 
+FOnDeathSignature& AAuraCharacterBase::GetOnDeathDelegate()
+{
+	return OnDeathDelegate;
+}
+
 void AAuraCharacterBase::MulticastHandleDeath_Implementation(const FVector& DeathImpulse)
 {
 	UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation(), GetActorRotation());
@@ -64,7 +69,9 @@ void AAuraCharacterBase::MulticastHandleDeath_Implementation(const FVector& Deat
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	Dissolve();
 	bDaed = true;
-	OnDeath.Broadcast(this);
+	BurnDebuffComponent->Deactivate();
+	OnDeathDelegate.Broadcast(this);
+//	OnDeath.Broadcast(this);
 }
 
 void AAuraCharacterBase::BeginPlay()
@@ -147,10 +154,10 @@ FOnASCRegistered AAuraCharacterBase::GetOnASCRegisteredDelegate()
 	return OnASCRegistered;
 }
 
-FOnDeath AAuraCharacterBase::GetOnDeathDelegate()
+/*FOnDeath AAuraCharacterBase::GetOnDeathDelegate()
 {
 	return OnDeath;
-}
+}*/
 
 USkeletalMeshComponent* AAuraCharacterBase::GetWeapon_Implementation()
 {
