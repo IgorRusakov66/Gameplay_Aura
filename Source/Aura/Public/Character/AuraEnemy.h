@@ -1,4 +1,4 @@
-// Coppyright Igor Rusakov
+// Copyright Igor Rusakov
 
 #pragma once
 
@@ -47,9 +47,6 @@ public:
 	bool bHitReacting = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Combat")
-	float BaseWalkSpeed = 250.f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Combat")
 	float LifeSpan = 5.f;
 
 	UPROPERTY(BlueprintReadWrite, Category="Combat")
@@ -57,8 +54,9 @@ public:
 	
 protected:
 	virtual void BeginPlay() override;
-	virtual void InitAbilityActorInfo();
+	virtual void InitAbilityActorInfo() override;
 	virtual void InitializeDefaultAttributes() const override;
+	virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount) override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Character Class Default")
 	int32 Level = 1;

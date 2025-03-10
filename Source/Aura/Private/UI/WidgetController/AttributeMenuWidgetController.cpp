@@ -1,4 +1,4 @@
-// Coppyright Igor Rusakov
+// Copyright Igor Rusakov
 
 
 #include "UI/WidgetController/AttributeMenuWidgetController.h"
@@ -9,7 +9,7 @@
 void UAttributeMenuWidgetController::BindCallbacksToDependencies()
 {
 	check(AttributeInfo);
-	for (auto& Pair : GetAuraAS()->TagsToAtributes)
+	for (auto& Pair : GetAuraAS()->TagsToAttributes)
 	{
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(Pair.Value()).AddLambda(
         	[this, Pair](const FOnAttributeChangeData& Data)
@@ -32,7 +32,7 @@ void UAttributeMenuWidgetController::BroadcastInitialValues()
 	UAuraAttributeSet* AS = CastChecked<UAuraAttributeSet>(AttributeSet);
 	check(AttributeInfo);
 
-	for (auto& Pair : AS->TagsToAtributes)
+	for (auto& Pair : AS->TagsToAttributes)
 	{
 		BroadcastAttributeInfo(Pair.Key, Pair.Value());
 	}

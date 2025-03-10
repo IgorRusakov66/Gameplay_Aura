@@ -1,4 +1,4 @@
-// Coppyright Igor Rusakov
+// Copyright Igor Rusakov
 
 #pragma once
 
@@ -67,7 +67,7 @@ public:
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 	virtual void PostAttributeChange(const FGameplayAttribute& Attribute, float OldValue, float NewValue) override;
 	
-	TMap<FGameplayTag, TStaticFuncPtr<FGameplayAttribute()>> TagsToAtributes;
+	TMap<FGameplayTag, TStaticFuncPtr<FGameplayAttribute()>> TagsToAttributes;
 	
 	/*
 	 * Primary Attributes
